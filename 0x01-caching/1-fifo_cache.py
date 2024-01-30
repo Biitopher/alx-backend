@@ -4,12 +4,13 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
+    """class FIFOCache that inherits from BaseCaching"""
     def __init__(self):
-        """Initiate"""
+        """Initialize class FIFO cache"""
         super().__init__()
 
     def put(self, key, item):
-        """Put"""
+        """"Checks if the number of items exceeds"""
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discarded_key, _ = next(iter(self.cache_data.items()))
@@ -18,7 +19,7 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """Get"""
+        """Returns value associated with given key"""
         if key is not None:
             return self.cache_data.get(key, None)
         return None

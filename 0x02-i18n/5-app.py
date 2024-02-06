@@ -4,8 +4,6 @@ from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 import pytz
 
-app = Flask(__name__)
-babel = Babel(app)
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -23,13 +21,12 @@ class Config:
 
 
 app = Flask(__name__)
-app.config.from_object(Config)
-app.url_map.strict_slashes = False
 babel = Babel(app)
+app.config.from_object(Config)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """Check if the 'locale' parameter is present in the request"""
     requested_locale = request.args.get('locale')
     if requested_locale and requested_locale in app.config['LANGUAGES']:
@@ -50,7 +47,7 @@ def before_request():
 
 
 @app.route('/')
-def index():
+def index( -> str):
     """defines index"""
     return render_template('5-index.html')
 

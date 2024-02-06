@@ -22,7 +22,10 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 
 
 @babel.localeselector
@@ -49,7 +52,7 @@ def before_request():
 @app.route('/')
 def index():
     """defines index"""
-    return render_template('index.html')
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':

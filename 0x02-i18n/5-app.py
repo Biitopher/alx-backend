@@ -47,7 +47,7 @@ def before_request():
 
 
 @app.route('/')
-def index( -> str):
+def index() -> str:
     """defines index"""
     return render_template('5-index.html')
 

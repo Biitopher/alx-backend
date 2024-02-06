@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mock log in"""
+"""Mock user log in system """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 import pytz
@@ -48,7 +48,7 @@ def before_request():
 
 @app.route('/')
 def index() -> str:
-    """defines index"""
+    """defines the index"""
     return render_template('5-index.html')
 
 

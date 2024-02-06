@@ -11,8 +11,8 @@
         {% if g.user %}
             {{ _('logged_in_as', username=g.user.name) }}
         {% else %}
-            {{ _('not_logged_in') }}
+            {{ _('not_logged_in') }}</p>
         {% endif %}
-    </p>
+        <p>{{ _('current_time_is', current_time=g.time) }}</p>
 </body>
 </html>

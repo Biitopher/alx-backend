@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mock user log in system """
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, _
+from flask_babel import Babel
 import pytz
 
 
